@@ -3,10 +3,13 @@ import classes from './ProductItem.module.css'
 import { useDispatch } from 'react-redux'
 import { QuantityAction } from '../../Store/Quantity'
 const ProductItem = (props) => {
-  const { title, price, description } = props
+  const { title, price, description, id } = props
   const dispatch = useDispatch()
   const addItem = () => {
-    dispatch({ type: QuantityAction.addItem })
+    dispatch({
+      type: QuantityAction.addItem,
+      payload: { title, price, id },
+    })
   }
   return (
     <li className={classes.item}>

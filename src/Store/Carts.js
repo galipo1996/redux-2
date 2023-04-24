@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = { show: false }
+const initialState = { show: false, notif: null }
 
 const Cart = createSlice({
   name: 'Cart',
@@ -8,6 +8,13 @@ const Cart = createSlice({
   reducers: {
     Tooggle(state) {
       state.show = !state.show
+    },
+    changeState(state, action) {
+      state.notif = {
+        status: action.payload.status,
+        message: action.payload.message,
+        title: action.payload.title,
+      }
     },
   },
 })

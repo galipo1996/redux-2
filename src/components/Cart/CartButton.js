@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { cartAction } from '../../Store/Carts'
 
 const CartButton = (props) => {
-  const quantity = useSelector((state) => state.quantity.quantity)
+  const quantity = useSelector((state) => state.quantity.totalQuantity)
   const dispatch = useDispatch()
   const toogleCart = () => {
     dispatch({ type: cartAction.Tooggle })

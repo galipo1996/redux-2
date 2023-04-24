@@ -2,14 +2,15 @@ import classes from './CartItem.module.css'
 import { useDispatch } from 'react-redux'
 import { QuantityAction } from '../../Store/Quantity'
 const CartItem = (props) => {
-  const { title, quantity, price } = props.item
+  const { title, quantity, price, id } = props.item
+  console.log(id)
   const total = price * quantity
   const dispatch = useDispatch()
   const addItem = () => {
-    dispatch({ type: QuantityAction.addItem })
+    dispatch({ type: QuantityAction.addItem, payload: { title, price, id } })
   }
   const removeItem = () => {
-    dispatch({ type: QuantityAction.removeItem })
+    dispatch({ type: QuantityAction.removeItem, payload: id })
   }
   return (
     <li className={classes.item}>
